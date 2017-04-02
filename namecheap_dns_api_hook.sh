@@ -202,13 +202,9 @@ function deploy_cert {
     # copy new chain file which contains the intermediate certificate(s)
     cp "${CHAINFILE}" /etc/pki/tls/certs/letsencrypt-intermediate-certificates.pem
     echo " + intermediate certificate chain copied"
-
-    # restart Apache
-    echo " + Reloading Apache configuration"
-    systemctl reload httpd.service
     
     # send email notification
-    send_notification $DOMAIN
+    # send_notification $DOMAIN
 }
 
 function unchanged_cert {
@@ -230,6 +226,8 @@ function unchanged_cert {
     # - CHAINFILE
     #   The path of the file containing the intermediate certificate(s).
 }
-
+function exit_hook(){
+  exit 0
+}
 HANDLER=$1; shift; $HANDLER $@
-exit 0
+exit 1
