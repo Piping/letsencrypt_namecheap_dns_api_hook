@@ -226,8 +226,8 @@ function unchanged_cert {
     # - CHAINFILE
     #   The path of the file containing the intermediate certificate(s).
 }
-function exit_hook(){
+function exit_hook {
   exit 0
 }
 HANDLER=$1; shift; $HANDLER $@
-exit 1
+exit 0
