@@ -227,7 +227,7 @@ function unchanged_cert {
     #   The path of the file containing the intermediate certificate(s).
 }
 function exit_hook {
-  exit 0
+  #Do Nothing, to silent warrning from dehydrated.sh
 }
 HANDLER=$1; shift; $HANDLER $@
 exit 0
