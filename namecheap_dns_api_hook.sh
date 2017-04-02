@@ -228,6 +228,7 @@ function unchanged_cert {
 }
 function exit_hook {
   #Do Nothing, to silent warrning from dehydrated.sh
+  echo -e "Exiting the hook...\n"
 }
 HANDLER=$1; shift; $HANDLER $@
 exit 0
